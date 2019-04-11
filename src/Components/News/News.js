@@ -21,19 +21,20 @@ class News extends Component {
           news: data.articles
         })
       })
+      .catch((error) => console.log(error));
   }
 
   renderItems() {
-    return this.props.items.map((item) => (
-      <NewSingle key={item.id} item={item} />
+    return this.state.news.map((item) => (
+      <NewSingle key={item.url} item={item} />
     ));
   }
 
   render() {
     return (
-      <ul>
+      <div className="row">
         {this.renderItems()}
-      </ul>
+      </div>
     );
   }
 }
